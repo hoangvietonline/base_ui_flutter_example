@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:base_ui_flutter_example/sign_up_route.dart';
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
@@ -88,6 +90,7 @@ class _SignPageState extends State<SignInPage> {
               alignment: Alignment.centerRight,
               child: GestureDetector(
                   onTap: () {
+                    log("click forgot");
                     //TODO forgot your password
                   },
                   child: Padding(
@@ -125,44 +128,18 @@ class _SignPageState extends State<SignInPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                    child: Container(
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.only(right: 8),
-                  decoration: BoxDecoration(
-                    border:
-                        Border.all(width: 2, color: HexColor(Constant.grey_50)),
-                  ),
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 21),
-                      child: SvgPicture.asset("assets/ic_fb.svg",
-                          semanticsLabel: 'fb Logo')),
-                )),
-                Expanded(
-                    child: Container(
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.only(right: 8),
-                  decoration: BoxDecoration(
-                    border:
-                        Border.all(width: 2, color: HexColor(Constant.grey_50)),
-                  ),
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 21),
-                      child: SvgPicture.asset("assets/ic_tw.svg",
-                          semanticsLabel: 'fb Logo')),
-                )),
-                Expanded(
-                    child: Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border:
-                        Border.all(width: 2, color: HexColor(Constant.grey_50)),
-                  ),
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 21),
-                      child: SvgPicture.asset("assets/ic_in.svg",
-                          semanticsLabel: 'fb Logo')),
-                ))
+                Constant().associateBtnFunc("assets/ic_fb.svg", onClick: () {
+                  log('data: click fb');
+                  //Todo Click btn fb
+                }),
+                Constant().associateBtnFunc("assets/ic_tw.svg", onClick: () {
+                  log('data: click tw');
+                  //Todo Click btn tw
+                }),
+                Constant().associateBtnFunc("assets/ic_in.svg", onClick: () {
+                  log('data: click in');
+                  //Todo Click btn in
+                })
               ],
             ),
           ),
