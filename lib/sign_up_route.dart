@@ -1,4 +1,3 @@
-import 'package:base_ui_flutter_example/sign_up_route.dart';
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -7,25 +6,25 @@ import 'package:hexcolor/hexcolor.dart';
 
 import 'constant.dart';
 
-class SignInRoute extends StatelessWidget {
-  const SignInRoute({Key? key}) : super(key: key);
+class SignUpRoute extends StatelessWidget {
+  const SignUpRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SignInPage(),
+      body: SignUpPage(),
     );
   }
 }
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _SignPageState();
+  State<StatefulWidget> createState() => _SignUpPageState();
 }
 
-class _SignPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,7 +48,7 @@ class _SignPageState extends State<SignInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Sign In",
+                      "Sign Up",
                       style: TextStyle(
                           color: HexColor(Constant.grey_500), fontSize: 18),
                     )
@@ -59,45 +58,42 @@ class _SignPageState extends State<SignInPage> {
             ],
           ),
           const Expanded(
-              child: Image(image: AssetImage('assets/img_sign_in.png'))),
+              child: Image(image: AssetImage('assets/img_sign_up.png'))),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: TextField(
               decoration: InputDecoration(
                 filled: true,
                 border: InputBorder.none,
                 fillColor: HexColor("#F7F7F7"),
-                hintText: 'Enter Username',
+                hintText: 'Enter Email',
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: TextField(
               obscureText: true,
               decoration: InputDecoration(
                 filled: true,
                 border: InputBorder.none,
                 fillColor: HexColor("#F7F7F7"),
-                hintText: 'Password',
+                hintText: 'Enter Password',
               ),
             ),
           ),
-          Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                  onTap: () {
-                    //TODO forgot your password
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: Text(
-                      "Forgot your password?",
-                      style: TextStyle(
-                          fontSize: 16, color: HexColor(Constant.grey_200)),
-                    ),
-                  ))),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                filled: true,
+                border: InputBorder.none,
+                fillColor: HexColor("#F7F7F7"),
+                hintText: 'Confirm Password',
+              ),
+            ),
+          ),
           SizedBox(height: 48),
           Container(
               margin: EdgeInsets.symmetric(horizontal: 16),
@@ -108,7 +104,7 @@ class _SignPageState extends State<SignInPage> {
               child: const Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: Text(
-                  "Login",
+                  "Sign Up",
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               )),
@@ -170,23 +166,19 @@ class _SignPageState extends State<SignInPage> {
             margin: const EdgeInsets.symmetric(vertical: 40),
             child: Text.rich(
               TextSpan(
-                text: 'Don’t have an account? ',
+                text: 'Already have an account? ',
                 style:
                     TextStyle(fontSize: 16, color: HexColor(Constant.grey_200)),
                 children: <TextSpan>[
                   TextSpan(
-                      text: 'Sign Up',
+                      text: 'Sign In',
                       style: const TextStyle(
                         color: Colors.deepOrangeAccent,
                         decoration: TextDecoration.underline,
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignUpRoute()),
-                              )
+                              //todo Press sign Up
                             }),
                   // can add more TextSpans here...
                 ],
