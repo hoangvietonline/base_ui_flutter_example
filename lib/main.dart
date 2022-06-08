@@ -62,7 +62,7 @@ class _CreateOderPageState extends State<CreateOderPage> {
                 const Expanded(
                     flex: 3,
                     child:
-                        Image(image: AssetImage('assets/img_onboarding.png'))),
+                        Image(image: AssetImage('assets/images/img_onboarding4.png'))),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 40),

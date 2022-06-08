@@ -42,7 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   tapPadding: const EdgeInsets.all(8),
                   child: Padding(
                       padding: const EdgeInsets.all(32),
-                      child: SvgPicture.asset("assets/ic_back.svg",
+                      child: SvgPicture.asset("assets/icons/ic_back.svg",
                           semanticsLabel: 'Acme Logo'))),
               Padding(
                 padding: const EdgeInsets.all(32),
@@ -60,7 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ],
           ),
           const Expanded(
-              child: Image(image: AssetImage('assets/img_sign_up.png'))),
+              child: Image(image: AssetImage('assets/images/img_sign_up.png'))),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: TextField(
@@ -123,15 +123,15 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Constant().associateBtnFunc("assets/ic_fb.svg", onClick: () {
+                Constant().associateBtnFunc("assets/icons/ic_fb.svg", onClick: () {
                   log('data: click fb');
                   //Todo Click btn fb
                 }),
-                Constant().associateBtnFunc("assets/ic_tw.svg", onClick: () {
+                Constant().associateBtnFunc("assets/icons/ic_tw.svg", onClick: () {
                   log('data: click tw');
                   //Todo Click btn tw
                 }),
-                Constant().associateBtnFunc("assets/ic_in.svg", onClick: () {
+                Constant().associateBtnFunc("assets//icons/ic_in.svg", onClick: () {
                   log('data: click in');
                   //Todo Click btn in
                 })
