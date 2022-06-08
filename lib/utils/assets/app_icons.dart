@@ -1,25 +1,26 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
+
 import '../app_image_widget.dart';
 
-abstract class AppImages {
-  AppImages._();
+abstract class AppIcons {
+  AppIcons._();
 
-  static const String _assetPath = "assets/images/";
+  static const String _assetPath = "assets/icons/";
 
-  static AppImageBuilder get imgOnBoarding1 =>
-      AppImageBuilder(_assetPath + 'img_onboarding1.png');
+  static AppImageBuilder get iconOrderPlus =>
+      AppImageBuilder(_assetPath + 'ic_order_plus.svg');
 
-  static AppImageBuilder get imgOnBoarding2 =>
-      AppImageBuilder(_assetPath + 'img_onboarding2.png');
+  static AppImageBuilder get iconBackBlack =>
+      AppImageBuilder(_assetPath + 'ic_back.svg');
 
-  static AppImageBuilder get imgOnBoarding3 =>
-      AppImageBuilder(_assetPath + 'img_onboarding3.png');
+  static AppImageBuilder get iconFacebook =>
+      AppImageBuilder(_assetPath + 'ic_fb.svg');
 
-  static AppImageBuilder get imgOnBoarding4 =>
-      AppImageBuilder(_assetPath + 'img_onboarding4.png');
+  static AppImageBuilder get iconTwitter =>
+      AppImageBuilder(_assetPath + 'ic_tw.svg');
 
-  static AppImageBuilder get imgSignInLogo =>
-      AppImageBuilder(_assetPath + 'img_sign_in.png');
+  static AppImageBuilder get iconLinkedin =>
+      AppImageBuilder(_assetPath + 'ic_in.svg');
 }
 
 class AppImageBuilder {
@@ -34,7 +35,7 @@ class AppImageBuilder {
         String? package,
         double? width,
         double? height,
-        BoxFit? fit = BoxFit.contain,
+        BoxFit fit = BoxFit.contain,
         Alignment alignment = Alignment.center,
         Color? color,
         BorderRadius? borderRadius,
