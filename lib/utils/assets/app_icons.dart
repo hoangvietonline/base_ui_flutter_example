@@ -13,6 +13,9 @@ abstract class AppIcons {
   static AppImageBuilder get iconBackBlack =>
       AppImageBuilder(_assetPath + 'ic_back.svg');
 
+  static AppImageBuilder get iconMenu =>
+      AppImageBuilder(_assetPath + 'ic_menu.svg');
+
   static AppImageBuilder get iconFacebook =>
       AppImageBuilder(_assetPath + 'ic_fb.svg');
 
@@ -21,6 +24,12 @@ abstract class AppIcons {
 
   static AppImageBuilder get iconLinkedin =>
       AppImageBuilder(_assetPath + 'ic_in.svg');
+
+  static AppImageBuilder get icon_cleaning =>
+      AppImageBuilder(_assetPath + 'ic_cleaning.svg');
+
+  static AppImageBuilder get icon_arrow_right =>
+      AppImageBuilder(_assetPath + 'arrow_right.svg');
 }
 
 class AppImageBuilder {
@@ -30,18 +39,18 @@ class AppImageBuilder {
 
   Widget widget(
       {Key? key,
-        bool matchTextDirection = false,
-        AssetBundle? bundle,
-        String? package,
-        double? width,
-        double? height,
-        BoxFit fit = BoxFit.contain,
-        Alignment alignment = Alignment.center,
-        Color? color,
-        BorderRadius? borderRadius,
-        Widget? placeholder,
-        String? errorImageUrl,
-        int? memCacheHeight}) {
+      bool matchTextDirection = false,
+      AssetBundle? bundle,
+      String? package,
+      double? width,
+      double? height,
+      BoxFit fit = BoxFit.contain,
+      Alignment alignment = Alignment.center,
+      Color? color,
+      BorderRadius? borderRadius,
+      Widget? placeholder,
+      String? errorImageUrl,
+      int? memCacheHeight}) {
     return AppImage(
       assetPath,
       key: key,

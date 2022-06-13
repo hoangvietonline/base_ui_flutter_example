@@ -1,6 +1,5 @@
 import 'package:base_ui_flutter_example/base/material_base_page.dart';
 import 'package:base_ui_flutter_example/base/responsive_mixin.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -93,7 +92,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> with ResponsiveMixin {
     );
   }
 
-  /// Control widget
+  /// Dot widget
   Widget _buildControlWidget() {
     Widget _buildDotsWidget(int index) {
       return Container(

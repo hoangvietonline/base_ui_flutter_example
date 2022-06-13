@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:base_ui_flutter_example/sign_up_route.dart';
+import 'package:base_ui_flutter_example/ui/category/category_route.dart';
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -102,19 +103,25 @@ class _SignPageState extends State<SignInPage> {
                     ),
                   ))),
           SizedBox(height: 48),
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 16),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: HexColor(Constant.teal_500),
-                  borderRadius: const BorderRadius.all(Radius.circular(2))),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                child: Text(
-                  "Login",
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
-              )),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CategoryRoute()));
+            },
+            child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: HexColor(Constant.teal_500),
+                    borderRadius: const BorderRadius.all(Radius.circular(2))),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: Text(
+                    "Login",
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                )),
+          ),
           Container(
             margin: const EdgeInsets.only(top: 16, bottom: 16),
             alignment: Alignment.center,
@@ -128,15 +135,18 @@ class _SignPageState extends State<SignInPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Constant().associateBtnFunc("assets/icons/ic_fb.svg", onClick: () {
+                Constant().associateBtnFunc("assets/icons/ic_fb.svg",
+                    onClick: () {
                   log('data: click fb');
                   //Todo Click btn fb
                 }),
-                Constant().associateBtnFunc("assets/icons/ic_tw.svg", onClick: () {
+                Constant().associateBtnFunc("assets/icons/ic_tw.svg",
+                    onClick: () {
                   log('data: click tw');
                   //Todo Click btn tw
                 }),
-                Constant().associateBtnFunc("assets/icons/ic_in.svg", onClick: () {
+                Constant().associateBtnFunc("assets/icons/ic_in.svg",
+                    onClick: () {
                   log('data: click in');
                   //Todo Click btn in
                 })
