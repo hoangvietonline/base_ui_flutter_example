@@ -4,9 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'assets/app_icons.dart';
 
-class AppNavigationWidget extends StatelessWidget {
-  const AppNavigationWidget({this.title, this.bgColor,Key? key})
-      : super(key: key);
+class AppBackWidget extends StatelessWidget {
+  const AppBackWidget({this.title, this.bgColor, Key? key}) : super(key: key);
 
   final String? title;
   final Color? bgColor;
@@ -24,7 +23,7 @@ class AppNavigationWidget extends StatelessWidget {
             title ?? '',
             fontSize: 18.sp,
           ),
-          Positioned(right: 30.w, child: AppIcons.iconMenu.widget())
+          Positioned(left: 30.w, child: AppIcons.iconBackBlack.widget())
         ],
       ),
     );

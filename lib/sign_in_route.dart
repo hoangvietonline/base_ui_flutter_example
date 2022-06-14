@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:base_ui_flutter_example/sign_up_route.dart';
-import 'package:base_ui_flutter_example/ui/category/category_route.dart';
+import 'package:base_ui_flutter_example/ui/categories/categories_route.dart';
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -106,7 +106,7 @@ class _SignPageState extends State<SignInPage> {
           GestureDetector(
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CategoryRoute()));
+                  MaterialPageRoute(builder: (context) => CategoriesRoute()));
             },
             child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 16),
