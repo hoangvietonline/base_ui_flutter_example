@@ -1,6 +1,7 @@
-import 'package:base_ui_flutter_example/commom/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'app_color.dart';
 
 enum FontFamilyType { gilroy, ubuntu }
 

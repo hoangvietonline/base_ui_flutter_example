@@ -1,10 +1,12 @@
 import 'dart:developer';
 
+import 'package:base_ui_flutter_example/presentation/categories/categories_route.dart';
 import 'package:base_ui_flutter_example/sign_up_route.dart';
-import 'package:base_ui_flutter_example/ui/categories/categories_route.dart';
+import 'package:base_ui_flutter_example/utils/widget/button/button_associate.dart';
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -135,17 +137,17 @@ class _SignPageState extends State<SignInPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Constant().associateBtnFunc("assets/icons/ic_fb.svg",
+                AssociateButton().associateBtnFunc("assets/icons/ic_fb.svg",
                     onClick: () {
                   log('data: click fb');
                   //Todo Click btn fb
                 }),
-                Constant().associateBtnFunc("assets/icons/ic_tw.svg",
+                AssociateButton().associateBtnFunc("assets/icons/ic_tw.svg",
                     onClick: () {
                   log('data: click tw');
                   //Todo Click btn tw
                 }),
-                Constant().associateBtnFunc("assets/icons/ic_in.svg",
+                AssociateButton().associateBtnFunc("assets/icons/ic_in.svg",
                     onClick: () {
                   log('data: click in');
                   //Todo Click btn in
@@ -154,12 +156,12 @@ class _SignPageState extends State<SignInPage> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 40),
+            margin: EdgeInsets.symmetric(vertical: 40.w),
             child: Text.rich(
               TextSpan(
                 text: 'Don’t have an account? ',
                 style:
-                    TextStyle(fontSize: 16, color: HexColor(Constant.grey_200)),
+                    TextStyle(fontSize: 16.sp, color: HexColor(Constant.grey_200)),
                 children: <TextSpan>[
                   TextSpan(
                       text: 'Sign Up',

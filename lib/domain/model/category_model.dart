@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/assets/app_image.dart';
+import '../../utils/assets/app_image.dart';
 
 class CategoryModel {
   final String? name;

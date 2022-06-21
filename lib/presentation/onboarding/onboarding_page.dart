@@ -1,13 +1,13 @@
-import 'package:base_ui_flutter_example/base/material_base_page.dart';
-import 'package:base_ui_flutter_example/base/responsive_mixin.dart';
+import 'package:base_ui_flutter_example/domain/model/onboarding_model.dart';
+import 'package:base_ui_flutter_example/presentation/base/material_base_page.dart';
+import 'package:base_ui_flutter_example/presentation/base/responsive_mixin.dart';
+import 'package:base_ui_flutter_example/sign_in_route.dart';
+import 'package:base_ui_flutter_example/utils/assets/app_icons.dart';
+import 'package:base_ui_flutter_example/utils/widget/button/app_primary_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../commom/app_color.dart';
-import '../model/onboarding_model.dart';
-import '../sign_in_route.dart';
-import '../utils/assets/app_icons.dart';
-import '../widget/button/app_primary_button_widget.dart';
+import '../../utils/commom/app_color.dart';
 import 'onboarding_item_widget.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -22,12 +22,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> with ResponsiveMixin {
   final PageController _pageController = PageController();
   int currentIndex = 0;
 
-  int onboardingLength() {
+  int onBoardingLength() {
     return OnBoardingModel().onBoardingList().length;
   }
 
   bool isNotLatestPage() {
-    return currentIndex != (onboardingLength() - 1);
+    return currentIndex != (onBoardingLength() - 1);
   }
 
   void _updateControlWidget(int index) {
@@ -61,7 +61,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> with ResponsiveMixin {
             onPageChanged: (index) async {
               _updateControlWidget(index);
             },
-            itemCount: onboardingLength(),
+            itemCount: onBoardingLength(),
             controller: _pageController,
             itemBuilder: (context, index) {
               return OnBoardingItemWidget(
@@ -110,7 +110,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> with ResponsiveMixin {
     return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
-            onboardingLength(), (index) => _buildDotsWidget(index)));
+            onBoardingLength(), (index) => _buildDotsWidget(index)));
   }
 
   /// Next button widget

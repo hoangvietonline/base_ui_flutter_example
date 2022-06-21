@@ -1,8 +1,9 @@
-import 'package:base_ui_flutter_example/commom/app_color.dart';
-import 'package:base_ui_flutter_example/commom/app_text.dart';
-import 'package:base_ui_flutter_example/model/onboarding_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../domain/model/onboarding_model.dart';
+import '../../utils/commom/app_color.dart';
+import '../../utils/commom/app_text.dart';
 
 class OnBoardingItemWidget extends StatelessWidget {
   const OnBoardingItemWidget({Key? key, required this.onBoardingModel})

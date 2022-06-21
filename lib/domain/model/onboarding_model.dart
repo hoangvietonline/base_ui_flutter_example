@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../utils/assets/app_image.dart';
+import '../../utils/assets/app_image.dart';
 
 class OnBoardingModel {
   OnBoardingModel({this.title, this.image, this.description});

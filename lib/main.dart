@@ -1,9 +1,8 @@
+import 'package:base_ui_flutter_example/presentation/login/login_bloc.dart';
+import 'package:base_ui_flutter_example/presentation/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'login/login_bloc.dart';
-import 'onboarding/onboarding_page.dart';
 
 void main() async {
   await ScreenUtil.ensureScreenSize();

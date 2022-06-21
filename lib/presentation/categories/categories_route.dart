@@ -1,13 +1,13 @@
-import 'package:base_ui_flutter_example/ui/category/category_route.dart';
-import 'package:base_ui_flutter_example/utils/app_nav_widget.dart';
+import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
+import 'package:base_ui_flutter_example/utils/widget/app_nav_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../../commom/app_color.dart';
-import '../../commom/app_text.dart';
 import '../../utils/assets/app_icons.dart';
+import '../../utils/commom/app_text.dart';
+import '../category/category_route.dart';
 
 class CategoriesRoute extends StatelessWidget {
   const CategoriesRoute({Key? key}) : super(key: key);
@@ -70,8 +70,7 @@ class CategoriesState extends State<CategoriesPage> {
               callback: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => CategoryRoute()),
+              MaterialPageRoute(builder: (context) => CategoryRoute()),
             );
           }),
           SizedBox(

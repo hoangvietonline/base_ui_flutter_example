@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../app_image_widget.dart';
+import '../widget/app_image_widget.dart';
 
 abstract class AppIcons {
   AppIcons._();

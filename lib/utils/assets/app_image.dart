@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../app_image_widget.dart';
+import '../widget/app_image_widget.dart';
 
 abstract class AppImages {
   AppImages._();

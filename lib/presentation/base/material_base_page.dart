@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../commom/app_color.dart';
+import '../../utils/commom/app_color.dart';
 
 class MaterialBasePage extends StatelessWidget {
   const MaterialBasePage(
