@@ -1,13 +1,12 @@
 import 'dart:developer';
 
+import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
 import 'package:base_ui_flutter_example/utils/widget/button/button_associate.dart';
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hexcolor/hexcolor.dart';
-
-import 'constant.dart';
 
 class SignUpRoute extends StatelessWidget {
   const SignUpRoute({Key? key}) : super(key: key);
@@ -53,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Text(
                       "Sign Up",
                       style: TextStyle(
-                          color: HexColor(Constant.grey_500), fontSize: 18),
+                          color: AppColors.textBlack, fontSize: 18.sp),
                     )
                   ],
                 ),
@@ -62,37 +61,37 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           const Expanded(
               child: Image(image: AssetImage('assets/images/img_sign_up.png'))),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: TextField(
               decoration: InputDecoration(
                 filled: true,
                 border: InputBorder.none,
-                fillColor: HexColor("#F7F7F7"),
+                fillColor: AppColors.offWhite,
                 hintText: 'Enter Email',
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: TextField(
               obscureText: true,
               decoration: InputDecoration(
                 filled: true,
                 border: InputBorder.none,
-                fillColor: HexColor("#F7F7F7"),
+                fillColor: AppColors.offWhite,
                 hintText: 'Enter Password',
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: TextField(
               obscureText: true,
               decoration: InputDecoration(
                 filled: true,
                 border: InputBorder.none,
-                fillColor: HexColor("#F7F7F7"),
+                fillColor: AppColors.offWhite,
                 hintText: 'Confirm Password',
               ),
             ),
@@ -101,9 +100,9 @@ class _SignUpPageState extends State<SignUpPage> {
           Container(
               margin: EdgeInsets.symmetric(horizontal: 16),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: HexColor(Constant.teal_500),
-                  borderRadius: const BorderRadius.all(Radius.circular(2))),
+              decoration: const BoxDecoration(
+                  color: AppColors.mainGreen,
+                  borderRadius: BorderRadius.all(Radius.circular(2))),
               child: const Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: Text(
@@ -114,9 +113,9 @@ class _SignUpPageState extends State<SignUpPage> {
           Container(
             margin: const EdgeInsets.only(top: 16, bottom: 16),
             alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               "Or",
-              style: TextStyle(color: HexColor(Constant.grey_200)),
+              style: TextStyle(color: AppColors.textLightBlack),
             ),
           ),
           Container(
@@ -124,15 +123,18 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AssociateButton().associateBtnFunc("assets/icons/ic_fb.svg", onClick: () {
+                AssociateButton().associateBtnFunc("assets/icons/ic_fb.svg",
+                    onClick: () {
                   log('data: click fb');
                   //Todo Click btn fb
                 }),
-                AssociateButton().associateBtnFunc("assets/icons/ic_tw.svg", onClick: () {
+                AssociateButton().associateBtnFunc("assets/icons/ic_tw.svg",
+                    onClick: () {
                   log('data: click tw');
                   //Todo Click btn tw
                 }),
-                AssociateButton().associateBtnFunc("assets//icons/ic_in.svg", onClick: () {
+                AssociateButton().associateBtnFunc("assets//icons/ic_in.svg",
+                    onClick: () {
                   log('data: click in');
                   //Todo Click btn in
                 })
@@ -144,8 +146,8 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Text.rich(
               TextSpan(
                 text: 'Already have an account? ',
-                style:
-                    TextStyle(fontSize: 16, color: HexColor(Constant.grey_200)),
+                style: const TextStyle(
+                    fontSize: 16, color: AppColors.textLightBlack),
                 children: <TextSpan>[
                   TextSpan(
                       text: 'Sign In',

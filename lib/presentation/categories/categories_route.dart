@@ -3,7 +3,6 @@ import 'package:base_ui_flutter_example/utils/widget/app_nav_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 import '../../utils/assets/app_icons.dart';
 import '../../utils/commom/app_text.dart';
@@ -42,11 +41,11 @@ class CategoriesState extends State<CategoriesPage> {
               alignment: Alignment.center,
               height: 70.h,
               decoration: BoxDecoration(
-                  color: HexColor("#F7F7F7"),
+                  color: AppColors.offWhite,
                   borderRadius: BorderRadius.circular(4.sp)),
               margin: EdgeInsets.symmetric(horizontal: 30, vertical: 4),
               child: TextField(
-                style: TextStyle(fontSize: 16, color: HexColor("#B0B0C3")),
+                style: const TextStyle(fontSize: 16, color: AppColors.gray),
                 scrollPadding: EdgeInsets.all(40.0.sp),
                 decoration: InputDecoration(
                   icon: SvgPicture.asset('assets/icons/ic_search.svg'),
@@ -94,14 +93,14 @@ class CategoriesState extends State<CategoriesPage> {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border.all(width: 1, color: HexColor("#E2E2E0"))),
+                  border: Border.all(width: 1, color: AppColors.lightGray)),
               child: AppText.primary(
                 'Back',
                 fontSize: 16,
                 fontFamily: FontFamilyType.ubuntu,
                 fontWeight: FontWeightType.regular,
                 textAlign: TextAlign.center,
-                color: HexColor("#838391"),
+                color: AppColors.textLightBlack,
               ),
             ),
           ),
@@ -111,7 +110,7 @@ class CategoriesState extends State<CategoriesPage> {
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 16.h),
-              color: HexColor("#20C3AF"),
+              color: AppColors.mainGreen,
               child: AppText.primary(
                 'Next',
                 fontSize: 16,
@@ -136,12 +135,12 @@ class CategoriesState extends State<CategoriesPage> {
       child: Container(
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(width: 1, color: HexColor("#E2E2E0"))),
+            border: Border.all(width: 1, color: AppColors.lightGray)),
         margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 30.w),
         child: Row(
           children: [
             Container(
-                color: HexColor("#E2E2E0"),
+                color: AppColors.lightGray,
                 padding: EdgeInsets.all(16.w),
                 width: 70.w,
                 height: 70.w,

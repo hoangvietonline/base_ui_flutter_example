@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         })
       ],
       child: MaterialApp(
-        title: 'Volume One',
+        title: 'Example Demo Ui',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

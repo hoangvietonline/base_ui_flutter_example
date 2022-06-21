@@ -2,15 +2,13 @@ import 'dart:developer';
 
 import 'package:base_ui_flutter_example/presentation/categories/categories_route.dart';
 import 'package:base_ui_flutter_example/sign_up_route.dart';
+import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
 import 'package:base_ui_flutter_example/utils/widget/button/button_associate.dart';
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hexcolor/hexcolor.dart';
-
-import 'constant.dart';
 
 class SignInRoute extends StatelessWidget {
   const SignInRoute({Key? key}) : super(key: key);
@@ -45,7 +43,7 @@ class _SignPageState extends State<SignInPage> {
                   },
                   tapPadding: const EdgeInsets.all(8),
                   child: Padding(
-                      padding: const EdgeInsets.all(32),
+                      padding: EdgeInsets.all(32.w),
                       child: SvgPicture.asset("assets/icons/ic_back.svg",
                           semanticsLabel: 'Acme Logo'))),
               Padding(
@@ -56,7 +54,7 @@ class _SignPageState extends State<SignInPage> {
                     Text(
                       "Sign In",
                       style: TextStyle(
-                          color: HexColor(Constant.grey_500), fontSize: 18),
+                          color: AppColors.lightGray, fontSize: 18.sp),
                     )
                   ],
                 ),
@@ -65,25 +63,25 @@ class _SignPageState extends State<SignInPage> {
           ),
           const Expanded(
               child: Image(image: AssetImage('assets/images/img_sign_in.png'))),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: TextField(
               decoration: InputDecoration(
                 filled: true,
                 border: InputBorder.none,
-                fillColor: HexColor("#F7F7F7"),
+                fillColor: AppColors.offWhite,
                 hintText: 'Enter Username',
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: TextField(
               obscureText: true,
               decoration: InputDecoration(
                 filled: true,
                 border: InputBorder.none,
-                fillColor: HexColor("#F7F7F7"),
+                fillColor: AppColors.offWhite,
                 hintText: 'Password',
               ),
             ),
@@ -96,12 +94,12 @@ class _SignPageState extends State<SignInPage> {
                     log("click forgot");
                     //TODO forgot your password
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(4),
+                  child: const Padding(
+                    padding: EdgeInsets.all(4),
                     child: Text(
                       "Forgot your password?",
                       style: TextStyle(
-                          fontSize: 16, color: HexColor(Constant.grey_200)),
+                          fontSize: 16, color: AppColors.textLightBlack),
                     ),
                   ))),
           SizedBox(height: 48),
@@ -113,23 +111,23 @@ class _SignPageState extends State<SignInPage> {
             child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    color: HexColor(Constant.teal_500),
-                    borderRadius: const BorderRadius.all(Radius.circular(2))),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20),
+                decoration: const BoxDecoration(
+                    color: AppColors.mainGreen,
+                    borderRadius: BorderRadius.all(Radius.circular(2))),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20.h),
                   child: Text(
                     "Login",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: TextStyle(fontSize: 16.sp, color: Colors.white),
                   ),
                 )),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 16, bottom: 16),
+            margin: EdgeInsets.only(top: 16.h, bottom: 16.h),
             alignment: Alignment.center,
             child: Text(
               "Or",
-              style: TextStyle(color: HexColor(Constant.grey_200)),
+              style: TextStyle(color: AppColors.textLightBlack),
             ),
           ),
           Container(
@@ -161,7 +159,7 @@ class _SignPageState extends State<SignInPage> {
               TextSpan(
                 text: 'Don’t have an account? ',
                 style:
-                    TextStyle(fontSize: 16.sp, color: HexColor(Constant.grey_200)),
+                    TextStyle(fontSize: 16.sp, color: AppColors.textLightBlack),
                 children: <TextSpan>[
                   TextSpan(
                       text: 'Sign Up',
