@@ -30,6 +30,15 @@ abstract class AppIcons {
 
   static AppImageBuilder get icon_arrow_right =>
       AppImageBuilder(_assetPath + 'arrow_right.svg');
+
+  static AppImageBuilder get iconNumberPhone =>
+      AppImageBuilder(_assetPath + 'ic_call.svg');
+
+  static AppImageBuilder get icCompleted =>
+      AppImageBuilder(_assetPath + 'ic_completed.svg');
+
+  static AppImageBuilder get icEmail =>
+      AppImageBuilder(_assetPath + 'ic_email.svg');
 }
 
 class AppImageBuilder {

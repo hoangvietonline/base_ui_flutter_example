@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:base_ui_flutter_example/presentation/categories/categories_route.dart';
+import 'package:base_ui_flutter_example/presentation/profile/profile.dart';
 import 'package:base_ui_flutter_example/sign_up_route.dart';
 import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
 import 'package:base_ui_flutter_example/utils/widget/button/button_associate.dart';
@@ -135,11 +136,15 @@ class _SignPageState extends State<SignInPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AssociateButton().associateBtnFunc("assets/icons/ic_fb.svg",
-                    onClick: () {
-                  log('data: click fb');
-                  //Todo Click btn fb
-                }),
+                AssociateButton().associateBtnFunc(
+                  "assets/icons/ic_fb.svg",
+                  onClick: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProfilePage()));
+                  },
+                ),
                 AssociateButton().associateBtnFunc("assets/icons/ic_tw.svg",
                     onClick: () {
                   log('data: click tw');

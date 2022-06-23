@@ -33,7 +33,11 @@ class CategoriesState extends State<CategoriesPage> {
         child: Container(
       child: Column(
         children: [
-          AppNavigationWidget(title: 'Categories'),
+          AppNavigationWidget(
+              onPressed: () {
+                //todo
+              },
+              title: 'Categories'),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0, vertical: 16.h),
             child: Container(

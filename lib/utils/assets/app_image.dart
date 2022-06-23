@@ -39,6 +39,9 @@ abstract class AppImages {
 
   static AppImageBuilder get imgCategorySix =>
       AppImageBuilder(_assetPath + 'image_category6.png');
+
+  static AppImageBuilder get imgAvatar =>
+      AppImageBuilder(_assetPath + 'img_avatar.png');
 }
 
 class AppImageBuilder {

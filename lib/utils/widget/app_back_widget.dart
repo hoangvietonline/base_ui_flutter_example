@@ -19,10 +19,12 @@ class AppBackWidget extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          AppText.primary(
-            title ?? '',
-            fontSize: 18.sp,
-          ),
+          Positioned(
+              right: 30.w,
+              child: AppText.primary(
+                title ?? '',
+                fontSize: 18.sp,
+              )),
           Positioned(left: 30.w, child: AppIcons.iconBackBlack.widget())
         ],
       ),

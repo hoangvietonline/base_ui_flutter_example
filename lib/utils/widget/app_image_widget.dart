@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,18 +17,17 @@ class AppImage extends StatelessWidget {
   final String? errorImageUrl;
   final int? memCacheHeight;
 
-  const AppImage(
-      this.input,
+  const AppImage(this.input,
       {Key? key,
-        this.height,
-        this.width,
-        this.color,
-        this.fit,
-        this.memCacheHeight,
-        this.alignment = Alignment.center,
-        this.borderRadius,
-        this.placeholder,
-        this.errorImageUrl})
+      this.height,
+      this.width,
+      this.color,
+      this.fit,
+      this.memCacheHeight,
+      this.alignment = Alignment.center,
+      this.borderRadius,
+      this.placeholder,
+      this.errorImageUrl})
       : super(key: key);
 
   @override
