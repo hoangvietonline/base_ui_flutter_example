@@ -1,3 +1,4 @@
+import 'package:base_ui_flutter_example/presentation/settings/settings.dart';
 import 'package:base_ui_flutter_example/utils/assets/app_icons.dart';
 import 'package:base_ui_flutter_example/utils/commom/app_text.dart';
 import 'package:base_ui_flutter_example/utils/widget/app_back_widget.dart';
@@ -38,6 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 const AppBackWidget(
                   title: "Basket (3)",
+                  isCenter: false,
                 ),
                 CircleAvatar(
                   radius: 56,
@@ -95,7 +97,8 @@ class _ProfilePageState extends State<ProfilePage> {
           Container(
             color: AppColors.textBlack,
             width: double.infinity,
-            height: (MediaQuery.of(context).size.height * 0.45) - (MediaQuery.of(context).viewPadding.top),
+            height: (MediaQuery.of(context).size.height * 0.45) -
+                (MediaQuery.of(context).viewPadding.top),
             padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _aboutMeAndSettings() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30.w,vertical: 24.w),
+      margin: EdgeInsets.symmetric(horizontal: 30.w, vertical: 24.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -147,23 +150,30 @@ class _ProfilePageState extends State<ProfilePage> {
             width: 16.w,
           ),
           Expanded(
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 20.h),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(width: 1, color: AppColors.lightGray)),
-              child: AppText.primary(
-                'Settings',
-                fontSize: 16,
-                fontFamily: FontFamilyType.ubuntu,
-                fontWeight: FontWeightType.regular,
-                textAlign: TextAlign.center,
-                color: AppColors.textLightBlack,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsRoute()));
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 20.h),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(width: 1, color: AppColors.lightGray)),
+                child: AppText.primary(
+                  'Settings',
+                  fontSize: 16,
+                  fontFamily: FontFamilyType.ubuntu,
+                  fontWeight: FontWeightType.regular,
+                  textAlign: TextAlign.center,
+                  color: AppColors.textLightBlack,
+                ),
               ),
             ),
           ),
-
         ],
       ),
     );

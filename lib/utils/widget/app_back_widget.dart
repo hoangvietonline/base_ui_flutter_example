@@ -5,10 +5,13 @@ import '../assets/app_icons.dart';
 import '../commom/app_text.dart';
 
 class AppBackWidget extends StatelessWidget {
-  const AppBackWidget({this.title, this.bgColor, Key? key}) : super(key: key);
+  const AppBackWidget(
+      {this.title, this.bgColor, this.isCenter = true, Key? key})
+      : super(key: key);
 
   final String? title;
   final Color? bgColor;
+  final bool isCenter;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +22,18 @@ class AppBackWidget extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Positioned(
-              right: 30.w,
-              child: AppText.primary(
-                title ?? '',
-                fontSize: 18.sp,
-              )),
+          isCenter
+              ? AppText.primary(
+                  title ?? '',
+                  fontSize: 18.sp,
+                )
+              : Positioned(
+                  right: 30.w,
+                  child: AppText.primary(
+                    title ?? '',
+                    fontSize: 18.sp,
+                  ),
+                ),
           Positioned(left: 30.w, child: AppIcons.iconBackBlack.widget())
         ],
       ),
