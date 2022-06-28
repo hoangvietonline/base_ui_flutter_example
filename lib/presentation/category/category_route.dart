@@ -4,16 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../domain/model/category_model.dart';
 
 class CategoryRoute extends StatelessWidget {
-  CategoryRoute({Key? key}) : super(key: key);
+  const CategoryRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: CategoryPage());
+    return const Scaffold(body: CategoryPage());
   }
 }
 
 class CategoryPage extends StatefulWidget {
-  CategoryPage({Key? key}) : super(key: key);
+  const CategoryPage({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => CategoryState();
@@ -30,16 +30,21 @@ class CategoryState extends State<CategoryPage> {
           itemCount: categoryList.length,
           itemBuilder: (BuildContext context, int index) {
             return Column(
-              children: [_buildItemCategoryWidget(context, categoryList[index])],
+              children: [
+                _buildItemCategoryWidget(context, categoryList[index])
+              ],
             );
           }),
     );
   }
 
-  Widget _buildItemCategoryWidget(BuildContext context, CategoryModel categoryModel) {
+  Widget _buildItemCategoryWidget(
+      BuildContext context, CategoryModel categoryModel) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w),
-      child: Expanded(child: categoryModel.imageDescription ?? const SizedBox(),),
+      child: Expanded(
+        child: categoryModel.imageDescription ?? const SizedBox(),
+      ),
     );
   }
 }

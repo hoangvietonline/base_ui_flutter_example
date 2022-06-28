@@ -1,3 +1,4 @@
+import 'package:base_ui_flutter_example/presentation/payment_card/payment_cards.dart';
 import 'package:base_ui_flutter_example/utils/assets/app_icons.dart';
 import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
 import 'package:base_ui_flutter_example/utils/commom/app_text.dart';
@@ -37,10 +38,15 @@ class _SettingsPageState extends State<SettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _itemSettingsWidget('Payment cards'),
-                  _itemSettingsWidget('Write to us'),
-                  _itemSettingsWidget('Rate us on app store'),
-                  _itemSettingsWidget('About Us'),
+                  _itemSettingsWidget('Payment cards', callback: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PaymentCardsRoute()));
+                  }),
+                  _itemSettingsWidget('Write to us', callback: () {}),
+                  _itemSettingsWidget('Rate us on app store', callback: () {}),
+                  _itemSettingsWidget('About Us', callback: () {}),
                   SizedBox(
                     height: 16.h,
                   ),
@@ -72,20 +78,25 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget _itemSettingsWidget(String title) {
+  Widget _itemSettingsWidget(String title, {required Function callback}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8.h),
       color: AppColors.offWhite,
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.h),
-      child: Row(
-        children: [
-          Expanded(
-            child: AppText.bodyMedium(title),
-            flex: 1,
-          ),
-          AppIcons.icon_arrow_right.widget()
-        ],
+      child: InkWell(
+        onTap: () {
+          callback();
+        },
+        child: Row(
+          children: [
+            Expanded(
+              child: AppText.bodyMedium(title),
+              flex: 1,
+            ),
+            AppIcons.icon_arrow_right.widget()
+          ],
+        ),
       ),
     );
   }

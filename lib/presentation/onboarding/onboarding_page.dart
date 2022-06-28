@@ -45,7 +45,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> with ResponsiveMixin {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             // Onboarding pages
-            _buildOnboardingPagesWidget(),
+            _buildOnBoardingPagesWidget(),
             // Bottom widgets
             _buildBottomWidgets(context)
           ],
@@ -55,19 +55,20 @@ class _OnBoardingPageState extends State<OnBoardingPage> with ResponsiveMixin {
   }
 
   /// Onboarding widget
-  Widget _buildOnboardingPagesWidget() {
+  Widget _buildOnBoardingPagesWidget() {
     return Expanded(
-        child: PageView.builder(
-            onPageChanged: (index) async {
-              _updateControlWidget(index);
-            },
-            itemCount: onBoardingLength(),
-            controller: _pageController,
-            itemBuilder: (context, index) {
-              return OnBoardingItemWidget(
-                onBoardingModel: OnBoardingModel().onBoardingList()[index],
-              );
-            }));
+      child: PageView.builder(
+          onPageChanged: (index) async {
+            _updateControlWidget(index);
+          },
+          itemCount: onBoardingLength(),
+          controller: _pageController,
+          itemBuilder: (context, index) {
+            return OnBoardingItemWidget(
+              onBoardingModel: OnBoardingModel().onBoardingList()[index],
+            );
+          }),
+    );
   }
 
   /// Bottom widgets
