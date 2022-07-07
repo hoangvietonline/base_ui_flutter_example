@@ -1,3 +1,4 @@
+import 'package:base_ui_flutter_example/presentation/add_%20new_card/add_new_card_route.dart';
 import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
 import 'package:base_ui_flutter_example/utils/commom/app_text.dart';
 import 'package:base_ui_flutter_example/utils/widget/app_back_widget.dart';
@@ -42,7 +43,10 @@ class _PaymentCardsPageState extends State<PaymentCardsPage> {
             ),
             InkWell(
               onTap: () {
-                //TODO add payments
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AddNewCardRoute()));
               },
               child: Container(
                 decoration: BoxDecoration(

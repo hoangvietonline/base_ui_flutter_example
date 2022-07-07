@@ -19,8 +19,8 @@ class ItemProfileWidget extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            width: 70.w,
-            height: 70.w,
+            width: 50.w,
+            height: 50.w,
             child: icon,
           ),
           Container(
