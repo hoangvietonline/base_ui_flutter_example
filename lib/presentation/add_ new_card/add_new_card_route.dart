@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,6 +25,31 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
   String _cardNumber = "1234556789";
   String _dateCreate = "30/01";
   int _balance = 25000;
+  String _cvv = "";
+  final List<String> months = [
+    '01',
+    '02',
+    '03',
+    '04',
+    '05',
+    '06',
+    '07',
+    '08',
+    '09',
+    '10',
+    '11',
+    '12',
+  ];
+
+  final List<int> years = List<int>.generate(100, (index) => 1900 + index);
+  String? _monthValue = "10";
+  String? _yearValue = "2020";
+
+  void setCvv(String value) {
+    setState(() {
+      _cvv = value;
+    });
+  }
 
   void setCardNumber(String cardNumber) {
     setState(() {
@@ -46,6 +72,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           children: [
@@ -63,9 +90,6 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                       'Card number',
                       fontSize: 16.sp,
                     ),
-                    SizedBox(
-                      height: 16.h,
-                    ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 20.h),
                       child: TextField(
@@ -76,7 +100,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                         inputFormatters: <TextInputFormatter>[
                           FilteringTextInputFormatter.digitsOnly
                         ],
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           filled: true,
                           border: InputBorder.none,
                           fillColor: AppColors.offWhite,
@@ -84,6 +108,95 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                         ),
                       ),
                     ),
+                    _titleFeatureCard(),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 8.w),
+                          color: AppColors.offWhite,
+                          height: 60.h,
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton2(
+                              hint: AppText.bodyMedium(
+                                '01',
+                                fontSize: 16.sp,
+                              ),
+                              items: months
+                                  .map((item) => DropdownMenuItem<String>(
+                                        value: item,
+                                        child: AppText.bodyMedium(
+                                          item,
+                                          fontSize: 16.sp,
+                                        ),
+                                      ))
+                                  .toList(),
+                              value: _monthValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _monthValue = value as String;
+                                });
+                              },
+                              buttonHeight: 40,
+                              itemHeight: 40,
+                            ),
+                          ),
+                        )),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        Expanded(
+                            child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 8.w),
+                          height: 60.h,
+                          color: AppColors.offWhite,
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton2(
+                              hint: AppText.bodyMedium(
+                                '2020',
+                                fontSize: 16.sp,
+                              ),
+                              items: years
+                                  .map((item) => DropdownMenuItem<String>(
+                                        value: '$item',
+                                        child: AppText.bodyMedium(
+                                          '$item',
+                                          fontSize: 16.sp,
+                                        ),
+                                      ))
+                                  .toList(),
+                              value: _yearValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _yearValue = value as String;
+                                });
+                              },
+                              buttonHeight: 40,
+                              itemHeight: 40,
+                            ),
+                          ),
+                        )),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        Expanded(
+                            child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.only(left: 16.w),
+                          height: 60.h,
+                          color: AppColors.offWhite,
+                          child: TextFormField(
+                            decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                hintText: '****',
+                                suffixIcon: Icon(Icons.remove_red_eye)),
+                            onChanged: (text) {
+                              setCvv(text);
+                            },
+                          ),
+                        )),
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -92,6 +205,35 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _titleFeatureCard() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+            child: AppText.bodyMedium(
+          'Exp. Month',
+          fontSize: 16.sp,
+        )),
+        SizedBox(
+          width: 8.w,
+        ),
+        Expanded(
+            child: AppText.bodyMedium(
+          'Exp.Year',
+          fontSize: 16.sp,
+        )),
+        SizedBox(
+          width: 8.w,
+        ),
+        Expanded(
+            child: AppText.bodyMedium(
+          'CVV',
+          fontSize: 16.sp,
+        )),
+      ],
     );
   }
 
@@ -122,7 +264,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
             right: 0,
             top: 0,
             child: AppText.bodyMedium(
-              _dateCreate,
+              "$_monthValue/$_yearValue",
               fontSize: 16.sp,
               color: AppColors.white,
             ),
