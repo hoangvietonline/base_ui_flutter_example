@@ -4,12 +4,11 @@ import 'package:base_ui_flutter_example/presentation/categories/categories_route
 import 'package:base_ui_flutter_example/presentation/profile/profile.dart';
 import 'package:base_ui_flutter_example/sign_up_route.dart';
 import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
+import 'package:base_ui_flutter_example/utils/widget/app_back_widget.dart';
 import 'package:base_ui_flutter_example/utils/widget/button/button_associate.dart';
-import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SignInRoute extends StatelessWidget {
   const SignInRoute({Key? key}) : super(key: key);
@@ -36,31 +35,11 @@ class _SignPageState extends State<SignInPage> {
       child: Scaffold(
         body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <
             Widget>[
-          Stack(
-            children: [
-              ExpandTapWidget(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  tapPadding: const EdgeInsets.all(8),
-                  child: Padding(
-                      padding: EdgeInsets.all(32.w),
-                      child: SvgPicture.asset("assets/icons/ic_back.svg",
-                          semanticsLabel: 'Acme Logo'))),
-              Padding(
-                padding: const EdgeInsets.all(32),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Sign In",
-                      style: TextStyle(
-                          color: AppColors.lightGray, fontSize: 18.sp),
-                    )
-                  ],
-                ),
-              ),
-            ],
+          const AppBackWidget(
+            title: 'Sign In',
+          ),
+          SizedBox(
+            height: 16.h,
           ),
           const Expanded(
               child: Image(image: AssetImage('assets/images/img_sign_in.png'))),

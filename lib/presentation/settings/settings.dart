@@ -83,19 +83,21 @@ class _SettingsPageState extends State<SettingsPage> {
       margin: EdgeInsets.symmetric(vertical: 8.h),
       color: AppColors.offWhite,
       alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.h),
       child: InkWell(
         onTap: () {
           callback();
         },
-        child: Row(
-          children: [
-            Expanded(
-              child: AppText.bodyMedium(title),
-              flex: 1,
-            ),
-            AppIcons.icon_arrow_right.widget()
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.h),
+          child: Row(
+            children: [
+              Expanded(
+                child: AppText.bodyMedium(title),
+                flex: 1,
+              ),
+              AppIcons.icon_arrow_right.widget()
+            ],
+          ),
         ),
       ),
     );

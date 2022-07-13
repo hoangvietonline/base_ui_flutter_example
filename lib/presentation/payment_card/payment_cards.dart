@@ -41,24 +41,27 @@ class _PaymentCardsPageState extends State<PaymentCardsPage> {
                     return _itemPayments(categoryList[index]);
                   }),
             ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AddNewCardRoute()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: AppColors.mainGreen,
-                    borderRadius: BorderRadius.circular(2.sp)),
-                alignment: Alignment.center,
-                width: double.infinity,
-                padding: EdgeInsets.all(20.h),
-                margin: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
-                child: AppText.bodyMedium(
-                  'Add new card',
-                  color: AppColors.white,
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AddNewCardRoute()));
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: AppColors.mainGreen,
+                      borderRadius: BorderRadius.circular(2.sp)),
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  padding:
+                      EdgeInsets.symmetric(vertical: 21.h),
+                  child: AppText.bodyMedium(
+                    'Add new card',
+                    color: AppColors.white,
+                  ),
                 ),
               ),
             )

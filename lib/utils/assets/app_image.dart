@@ -49,8 +49,12 @@ abstract class AppImages {
   static AppImageBuilder get imgVisa =>
       AppImageBuilder(_assetPath + 'visa_logo.png');
 
-  static AppImageBuilder get imgMastercard=>
+  static AppImageBuilder get imgMastercard =>
       AppImageBuilder(_assetPath + 'mastercard_logo.png');
+
+  static AppImageBuilder imgAvatarNotification(String name) {
+    return AppImageBuilder(_assetPath + name);
+  }
 }
 
 class AppImageBuilder {

@@ -1,3 +1,4 @@
+import 'package:base_ui_flutter_example/presentation/notification/notification_route.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -293,7 +294,11 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
       margin: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
       child: InkWell(
         onTap: () {
-          setCardNumber("cardNumber");
+          // setCardNumber("cardNumber");
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const NotificationRoute()));
         },
         child: Container(
           alignment: Alignment.center,
