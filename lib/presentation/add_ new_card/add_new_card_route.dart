@@ -41,7 +41,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
     '12',
   ];
 
-  final List<int> years = List<int>.generate(100, (index) => 1900 + index);
+  final List<int> years = List<int>.generate(100, (index) => 1960 + index);
   String? _monthValue = "10";
   String? _yearValue = "2020";
 
@@ -113,11 +113,13 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                       children: [
                         Expanded(
                             child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 8.w),
                           color: AppColors.offWhite,
                           height: 60.h,
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton2(
+                              buttonPadding:
+                                  EdgeInsets.symmetric(horizontal: 8.w),
+                              dropdownMaxHeight: 100.h,
                               hint: AppText.bodyMedium(
                                 '01',
                                 fontSize: 16.sp,
@@ -147,11 +149,13 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                         ),
                         Expanded(
                             child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 8.w),
                           height: 60.h,
                           color: AppColors.offWhite,
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton2(
+                              buttonPadding:
+                                  EdgeInsets.symmetric(horizontal: 8.w),
+                              dropdownMaxHeight: 100.h,
                               hint: AppText.bodyMedium(
                                 '2020',
                                 fontSize: 16.sp,
