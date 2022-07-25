@@ -1,3 +1,4 @@
+import 'package:base_ui_flutter_example/presentation/add_%20new_card/add_card_bloc.dart';
 import 'package:base_ui_flutter_example/presentation/login/login_bloc.dart';
 import 'package:base_ui_flutter_example/presentation/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) {
           return LoginBloc();
+        }),
+        BlocProvider(create: (BuildContext context) {
+          return AddCardBloc();
         })
       ],
       child: MaterialApp(
