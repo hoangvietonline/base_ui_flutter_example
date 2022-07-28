@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:base_ui_flutter_example/presentation/add_%20new_card/add_card_bloc.dart';
 import 'package:base_ui_flutter_example/presentation/notification/notification_route.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -29,23 +27,10 @@ class AddNewCardPage extends StatefulWidget {
 class _AddNewCardPageState extends State<AddNewCardPage> {
   int _balance = 25000;
   String _cvv = "";
-  final List<int> months = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-  ];
 
   final List<int> years = List<int>.generate(100, (index) => 1960 + index);
-  String? _monthValue = "10";
+
+  final List<int> months = List<int>.generate(12, (index) => 1 + index);
 
   void setCvv(String value) {
     setState(() {
@@ -115,7 +100,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                                       EdgeInsets.symmetric(horizontal: 8.w),
                                   dropdownMaxHeight: 100.h,
                                   hint: AppText.bodyMedium(
-                                    '01',
+                                    '${state.month}',
                                     fontSize: 16.sp,
                                   ),
                                   items: months
@@ -151,7 +136,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                                       EdgeInsets.symmetric(horizontal: 8.w),
                                   dropdownMaxHeight: 100.h,
                                   hint: AppText.bodyMedium(
-                                    '2020',
+                                    '${state.year}',
                                     fontSize: 16.sp,
                                   ),
                                   items: years
@@ -264,7 +249,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
             right: 0,
             top: 0,
             child: AppText.bodyMedium(
-              "$_monthValue/${state.year}",
+              "${state.month}/${state.year}",
               fontSize: 16.sp,
               color: AppColors.white,
             ),
