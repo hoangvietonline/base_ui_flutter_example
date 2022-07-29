@@ -1,5 +1,7 @@
+import 'dart:convert';
+
 import 'package:base_ui_flutter_example/presentation/add_%20new_card/add_card_bloc.dart';
-import 'package:base_ui_flutter_example/presentation/notification/notification_route.dart';
+import 'package:base_ui_flutter_example/utils/shared_reference_utils.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -179,14 +181,14 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                               ),
                             )),
                           ],
-                        )
+                        ),
+                        _buttonSaveCard(state)
                       ],
                     ),
                   ),
                 );
               },
             ),
-            _buttonSaveCard()
           ],
         ),
       ),
@@ -268,17 +270,21 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
     );
   }
 
-  Widget _buttonSaveCard() {
+  Widget _buttonSaveCard(AddCardState state) {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
       child: InkWell(
         onTap: () {
-          // setCardNumber("cardNumber");
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const NotificationRoute()));
+          // Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //         builder: (context) => const NotificationRoute()));
+          setState(() {
+            PaymentCard paymentCard =
+                PaymentCard(state.cardNumber, state.month, state.year);
+            setListCard(paymentCard);
+          });
         },
         child: Container(
           alignment: Alignment.center,
@@ -295,4 +301,38 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
       ),
     );
   }
+
+  List<PaymentCard> getListCard() {
+    String json = SharedPreferencesUtils.getJsonCard();
+    var cardJson = jsonDecode(json);
+    List<PaymentCard> ls =
+        cardJson.map((tagJson) => PaymentCard.fromJson(tagJson)).toList();
+    return ls;
+  }
+
+  void setListCard(PaymentCard paymentCard) {
+    List<PaymentCard> ls = getListCard();
+    ls.add(paymentCard);
+    String jsonPaymentCard = jsonEncode(ls);
+    SharedPreferencesUtils.setJsonCard(jsonPaymentCard);
+  }
+}
+
+class PaymentCard {
+  PaymentCard(this.numberCard, this.month, this.year);
+
+  String? numberCard;
+  int month = 1;
+  int year = 2020;
+
+  factory PaymentCard.fromJson(dynamic json) {
+    return PaymentCard(json['numberCard'] as String, json['month'] as int,
+        json['year'] as int);
+  }
+
+  Map toJson() => {
+        'numberCard': numberCard,
+        'month': month,
+        'year': year,
+      };
 }
