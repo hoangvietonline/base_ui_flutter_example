@@ -21,9 +21,9 @@ extension PaymentExtension on Payment {
     if (json == "") {
       return [];
     } else {
-      var cardJson = jsonDecode(json);
-      List<PaymentCard> ls =
-          cardJson.map((tagJson) => PaymentCard.fromJson(tagJson)).toList();
+      List<PaymentCard> ls = (jsonDecode(json) as List)
+          .map((tagJson) => PaymentCard.fromJson(tagJson))
+          .toList();
       return ls;
     }
   }

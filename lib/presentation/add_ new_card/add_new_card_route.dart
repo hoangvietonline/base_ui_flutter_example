@@ -304,10 +304,14 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
 
   List<PaymentCard> getListCard() {
     String json = SharedPreferencesUtils.getJsonCard();
-    var cardJson = jsonDecode(json);
-    List<PaymentCard> ls =
-        cardJson.map((tagJson) => PaymentCard.fromJson(tagJson)).toList();
-    return ls;
+    if (json != "") {
+      var cardJson = jsonDecode(json) as List;
+      List<PaymentCard> ls =
+          cardJson.map((tagJson) => PaymentCard.fromJson(tagJson)).toList();
+      return ls;
+    } else {
+      return [];
+    }
   }
 
   void setListCard(PaymentCard paymentCard) {
@@ -326,13 +330,9 @@ class PaymentCard {
   int year = 2020;
 
   factory PaymentCard.fromJson(dynamic json) {
-    return PaymentCard(json['numberCard'] as String, json['month'] as int,
-        json['year'] as int);
+    return PaymentCard(json["numberCard"] as String, json["month"] as int,
+        json["year"] as int);
   }
 
-  Map toJson() => {
-        'numberCard': numberCard,
-        'month': month,
-        'year': year,
-      };
+  Map toJson() => {"numberCard": numberCard, "month": month, "year": year};
 }

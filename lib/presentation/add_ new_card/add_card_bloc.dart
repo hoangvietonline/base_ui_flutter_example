@@ -7,8 +7,11 @@ class AddCardState {
   int year = 2020;
   String? cardNumber;
 
-  AddCardState copyWith({int month = 1, int year = 2020, String? cardNumber}) {
-    return AddCardState(month: month, year: year, cardNumber: cardNumber);
+  AddCardState copyWith({int? month, int? year, String? cardNumber}) {
+    return AddCardState(
+        month: month ?? this.month,
+        year: year ?? this.year,
+        cardNumber: cardNumber ?? this.cardNumber);
   }
 }
 
