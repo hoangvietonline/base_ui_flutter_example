@@ -302,8 +302,8 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
     );
   }
 
-  List<PaymentCard> getListCard() {
-    String json = SharedPreferencesUtils.getJsonCard();
+  Future<List<PaymentCard>> getListCard() async{
+    String json = await SharedPreferencesUtils.getJsonCard();
     if (json != "") {
       var cardJson = jsonDecode(json) as List;
       List<PaymentCard> ls =
@@ -314,8 +314,8 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
     }
   }
 
-  void setListCard(PaymentCard paymentCard) {
-    List<PaymentCard> ls = getListCard();
+  void setListCard(PaymentCard paymentCard) async {
+    List<PaymentCard> ls = await getListCard();
     ls.add(paymentCard);
     String jsonPaymentCard = jsonEncode(ls);
     SharedPreferencesUtils.setJsonCard(jsonPaymentCard);

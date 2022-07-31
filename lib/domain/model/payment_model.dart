@@ -16,8 +16,8 @@ class Payment {
 }
 
 extension PaymentExtension on Payment {
-  List<PaymentCard> getListCard() {
-    String json = SharedPreferencesUtils.getJsonCard();
+  Future<List<PaymentCard>> getListCard() async {
+    String json = await SharedPreferencesUtils.getJsonCard();
     if (json == "") {
       return [];
     } else {
@@ -28,9 +28,10 @@ extension PaymentExtension on Payment {
     }
   }
 
-  List<Payment> onCategoryList() {
+  Future<List<Payment>> onCategoryList() async{
+    List<PaymentCard> data = await getListCard();
     return <Payment>[
-      for (var card in getListCard())
+      for (var card in data)
         Payment(
             cardNumber: card.numberCard,
             date: '${card.month}/${card.year}',

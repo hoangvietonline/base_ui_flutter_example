@@ -22,7 +22,13 @@ class PaymentCardsPage extends StatefulWidget {
 }
 
 class _PaymentCardsPageState extends State<PaymentCardsPage> {
-  final List<Payment> categoryList = Payment().onCategoryList();
+  List<Payment> categoryList = [];
+
+  void loadData() {
+    setState(() {
+      Payment().onCategoryList().then((value) => categoryList = value);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +40,23 @@ class _PaymentCardsPageState extends State<PaymentCardsPage> {
               title: 'Payment cards',
             ),
             Expanded(
-              child: ListView.builder(
-                  padding: const EdgeInsets.all(8),
-                  itemCount: categoryList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return _itemPayments(categoryList[index]);
-                  }),
+              child: FutureBuilder(
+                future: Payment().onCategoryList(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<Payment>> snapshot) {
+                  if (snapshot.hasData && snapshot.data != null) {
+                    List<Payment>? data = snapshot.data;
+                    return ListView.builder(
+                        padding: const EdgeInsets.all(8),
+                        itemCount: data?.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return _itemPayments(data?[index] ?? Payment());
+                        });
+                  } else {
+                    return SizedBox();
+                  }
+                },
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
@@ -56,8 +73,7 @@ class _PaymentCardsPageState extends State<PaymentCardsPage> {
                       borderRadius: BorderRadius.circular(2.sp)),
                   alignment: Alignment.center,
                   width: double.infinity,
-                  padding:
-                      EdgeInsets.symmetric(vertical: 21.h),
+                  padding: EdgeInsets.symmetric(vertical: 21.h),
                   child: AppText.bodyMedium(
                     'Add new card',
                     color: AppColors.white,

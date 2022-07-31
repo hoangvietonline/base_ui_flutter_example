@@ -25,7 +25,7 @@ class SharedPreferencesUtils {
     return SharedPreferencesFactory.setString(JSON_ADD_CARD_KEY, json);
   }
 
-  static String getJsonCard() {
+  static Future<String> getJsonCard() async {
     return SharedPreferencesFactory.getString(JSON_ADD_CARD_KEY);
   }
 }
