@@ -22,6 +22,13 @@ class PaymentCardsPage extends StatefulWidget {
 }
 
 class _PaymentCardsPageState extends State<PaymentCardsPage> {
+  late Future<List<Payment>> loadData;
+
+  @override
+  void initState() {
+    super.initState();
+    loadData = Payment().onCategoryList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +41,7 @@ class _PaymentCardsPageState extends State<PaymentCardsPage> {
             ),
             Expanded(
               child: FutureBuilder(
-                future: Payment().onCategoryList(),
+                future: loadData,
                 builder: (BuildContext context,
                     AsyncSnapshot<List<Payment>> snapshot) {
                   if (snapshot.hasData && snapshot.data != null) {
@@ -55,10 +62,7 @@ class _PaymentCardsPageState extends State<PaymentCardsPage> {
               padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AddNewCardRoute()));
+                  _navigateAddNewCard(context);
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -78,6 +82,20 @@ class _PaymentCardsPageState extends State<PaymentCardsPage> {
         ),
       ),
     );
+  }
+
+  Future<void> _navigateAddNewCard(BuildContext context) async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const AddNewCardRoute()),
+    );
+    if (!mounted) return;
+
+    if (result['isUpdate']) {
+      setState(() {
+        loadData = Payment().onCategoryList();
+      });
+    }
   }
 
   Widget _itemPayments(Payment payment) {

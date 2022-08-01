@@ -280,11 +280,8 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
           //     context,
           //     MaterialPageRoute(
           //         builder: (context) => const NotificationRoute()));
-          setState(() {
-            PaymentCard paymentCard =
-                PaymentCard(state.cardNumber, state.month, state.year);
-            setListCard(paymentCard);
-          });
+
+          setListCard(state);
         },
         child: Container(
           alignment: Alignment.center,
@@ -302,7 +299,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
     );
   }
 
-  Future<List<PaymentCard>> getListCard() async{
+  Future<List<PaymentCard>> getListCard() async {
     String json = await SharedPreferencesUtils.getJsonCard();
     if (json != "") {
       var cardJson = jsonDecode(json) as List;
@@ -314,11 +311,14 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
     }
   }
 
-  void setListCard(PaymentCard paymentCard) async {
+  void setListCard(AddCardState state) async {
+    PaymentCard paymentCard =
+        PaymentCard(state.cardNumber, state.month, state.year);
     List<PaymentCard> ls = await getListCard();
     ls.add(paymentCard);
     String jsonPaymentCard = jsonEncode(ls);
-    SharedPreferencesUtils.setJsonCard(jsonPaymentCard);
+    await SharedPreferencesUtils.setJsonCard(jsonPaymentCard);
+    Navigator.pop(context, {'isUpdate': true});
   }
 }
 
