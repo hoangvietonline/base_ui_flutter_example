@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:base_ui_flutter_example/presentation/settings/settings.dart';
 import 'package:base_ui_flutter_example/utils/assets/app_icons.dart';
 import 'package:base_ui_flutter_example/utils/commom/app_text.dart';
@@ -6,6 +8,7 @@ import 'package:base_ui_flutter_example/utils/widget/item_info_profile.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../utils/assets/app_image.dart';
 import '../../utils/commom/app_color.dart';
@@ -25,6 +28,18 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  File? image;
+
+  Future pickImage() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (image == null) return;
+
+    final imageTemp = File(image.path);
+    setState(() {
+      this.image = imageTemp;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,13 +56,25 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: "Basket (3)",
                     isCenter: false,
                   ),
-                  CircleAvatar(
-                    radius: 56,
-                    backgroundColor: AppColors.lightGray,
-                    child: Padding(
-                      padding: const EdgeInsets.all(1), // Border radius
-                      child: ClipOval(
-                        child: AppImages.imgAvatar.widget(fit: BoxFit.cover),
+                  InkWell(
+                    onTap: () {
+                      pickImage();
+                    },
+                    child: CircleAvatar(
+                      radius: 56,
+                      backgroundColor: AppColors.lightGray,
+                      child: Padding(
+                        padding: const EdgeInsets.all(1), // Border radius
+                        child: ClipOval(
+                          child: image != null
+                              ? Image.file(
+                                  image!,
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.cover,
+                                )
+                              : AppImages.imgAvatar.widget(fit: BoxFit.cover),
+                        ),
                       ),
                     ),
                   ),
