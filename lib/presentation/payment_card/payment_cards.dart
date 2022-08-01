@@ -22,13 +22,6 @@ class PaymentCardsPage extends StatefulWidget {
 }
 
 class _PaymentCardsPageState extends State<PaymentCardsPage> {
-  List<Payment> categoryList = [];
-
-  void loadData() {
-    setState(() {
-      Payment().onCategoryList().then((value) => categoryList = value);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -14,7 +14,7 @@ class ProfileRoute extends StatelessWidget {
   const ProfileRoute({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => ProfilePage();
+  Widget build(BuildContext context) => const ProfilePage();
 }
 
 class ProfilePage extends StatefulWidget {
@@ -28,102 +28,104 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Column(
-        children: [
-          Container(
-            color: AppColors.white,
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.55,
-            child: Column(
-              children: [
-                const AppBackWidget(
-                  title: "Basket (3)",
-                  isCenter: false,
-                ),
-                CircleAvatar(
-                  radius: 56,
-                  backgroundColor: AppColors.lightGray,
-                  child: Padding(
-                    padding: const EdgeInsets.all(1), // Border radius
-                    child: ClipOval(
-                        child: AppImages.imgAvatar.widget(fit: BoxFit.cover)),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              color: AppColors.white,
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * 0.55,
+              child: Column(
+                children: [
+                  const AppBackWidget(
+                    title: "Basket (3)",
+                    isCenter: false,
                   ),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                AppText.primary(
-                  "Tomy",
-                  fontSize: 18.sp,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    AppText.bodyMedium("Da Nang"),
-                    SizedBox(
-                      width: 8.w,
+                  CircleAvatar(
+                    radius: 56,
+                    backgroundColor: AppColors.lightGray,
+                    child: Padding(
+                      padding: const EdgeInsets.all(1), // Border radius
+                      child: ClipOval(
+                        child: AppImages.imgAvatar.widget(fit: BoxFit.cover),
+                      ),
                     ),
-                    AppText.bodyMedium("\u25CF"),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    AppText.bodyMedium('ID : 1120611')
-                  ],
-                ),
-                Text.rich(
-                  TextSpan(
-                    style: TextStyle(
-                        fontSize: 16.sp, color: AppColors.textLightBlack),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'Edit',
-                          style: const TextStyle(
-                            color: Colors.deepOrangeAccent,
-                            decoration: TextDecoration.underline,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => {
-                                  //Todo
-                                }),
-                      // can add more TextSpans here...
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  AppText.primary(
+                    "Tomy",
+                    fontSize: 18.sp,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AppText.bodyMedium("Da Nang"),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      AppText.bodyMedium("\u25CF"),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      AppText.bodyMedium('ID : 1120611')
                     ],
                   ),
-                ),
-                _aboutMeAndSettings()
-              ],
+                  Text.rich(
+                    TextSpan(
+                      style: TextStyle(
+                          fontSize: 16.sp, color: AppColors.textLightBlack),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'Edit',
+                            style: const TextStyle(
+                              color: Colors.deepOrangeAccent,
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => {
+                                    //Todo
+                                  }),
+                        // can add more TextSpans here...
+                      ],
+                    ),
+                  ),
+                  _aboutMeAndSettings()
+                ],
+              ),
             ),
-          ),
-          Container(
-            color: AppColors.textBlack,
-            width: double.infinity,
-            height: (MediaQuery.of(context).size.height * 0.45) -
-                (MediaQuery.of(context).viewPadding.top),
-            padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ItemProfileWidget(
-                  title: 'Phone number',
-                  values: '+8446589923',
-                  icon: AppIcons.iconNumberPhone.widget(),
-                ),
-                ItemProfileWidget(
-                  title: 'Email',
-                  values: 'contact@gmail.com',
-                  icon: AppIcons.icEmail.widget(),
-                ),
-                ItemProfileWidget(
-                  title: 'Completed projects',
-                  values: '248',
-                  icon: AppIcons.icCompleted.widget(),
-                ),
-              ],
+            Container(
+              color: AppColors.textBlack,
+              width: double.infinity,
+              height: (MediaQuery.of(context).size.height * 0.45) -
+                  (MediaQuery.of(context).viewPadding.top),
+              padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 30.w),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ItemProfileWidget(
+                    title: 'Phone number',
+                    values: '+8446589923',
+                    icon: AppIcons.iconNumberPhone.widget(),
+                  ),
+                  ItemProfileWidget(
+                    title: 'Email',
+                    values: 'contact@gmail.com',
+                    icon: AppIcons.icEmail.widget(),
+                  ),
+                  ItemProfileWidget(
+                    title: 'Completed projects',
+                    values: '248',
+                    icon: AppIcons.icCompleted.widget(),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   Widget _aboutMeAndSettings() {
