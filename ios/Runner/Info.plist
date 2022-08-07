@@ -41,11 +41,17 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSCameraUsageDescription</key>
-	<string>To take user profile image</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-    <string>To choose user profile image</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Allow access to your phone's location</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Allow access your photo library</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Allow access your phone's camera</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>Used to capture audio for image picker plugin</string>
+    <string>Allow the app to record using your phone's microphone</string>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>
