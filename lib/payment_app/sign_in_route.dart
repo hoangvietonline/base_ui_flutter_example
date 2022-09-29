@@ -1,15 +1,15 @@
 import 'dart:developer';
 
-import 'package:base_ui_flutter_example/presentation/base/material_base_page.dart';
-import 'package:base_ui_flutter_example/presentation/categories/categories_route.dart';
-import 'package:base_ui_flutter_example/presentation/login/login_bloc.dart';
-import 'package:base_ui_flutter_example/presentation/profile/profile.dart';
-import 'package:base_ui_flutter_example/sign_up_route.dart';
-import 'package:base_ui_flutter_example/utils/assets/app_image.dart';
-import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
-import 'package:base_ui_flutter_example/utils/widget/app_back_widget.dart';
-import 'package:base_ui_flutter_example/utils/widget/button/button_associate.dart';
-import 'package:base_ui_flutter_example/utils/widget/textfield/auth_textfield.dart';
+import 'package:base_ui_flutter_example/payment_app/presentation/base/material_base_page.dart';
+import 'package:base_ui_flutter_example/payment_app/presentation/categories/categories_route.dart';
+import 'package:base_ui_flutter_example/payment_app/presentation/login/login_bloc.dart';
+import 'package:base_ui_flutter_example/payment_app/presentation/profile/profile.dart';
+import 'package:base_ui_flutter_example/payment_app/sign_up_route.dart';
+import 'package:base_ui_flutter_example/payment_app/utils/assets/app_image.dart';
+import 'package:base_ui_flutter_example/payment_app/utils/commom/app_color.dart';
+import 'package:base_ui_flutter_example/payment_app/utils/widget/app_back_widget.dart';
+import 'package:base_ui_flutter_example/payment_app/utils/widget/button/button_associate.dart';
+import 'package:base_ui_flutter_example/payment_app/utils/widget/textfield/auth_textfield.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -115,7 +115,8 @@ class _SignPageState extends State<SignInPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => CategoriesRoute()));
+                                  builder: (context) =>
+                                      const CategoriesRoute()));
                         },
                         child: Container(
                             alignment: Alignment.center,

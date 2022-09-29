@@ -1,13 +1,13 @@
-import 'package:base_ui_flutter_example/domain/model/onboarding_model.dart';
-import 'package:base_ui_flutter_example/presentation/base/material_base_page.dart';
-import 'package:base_ui_flutter_example/presentation/base/responsive_mixin.dart';
-import 'package:base_ui_flutter_example/sign_in_route.dart';
-import 'package:base_ui_flutter_example/utils/assets/app_icons.dart';
-import 'package:base_ui_flutter_example/utils/widget/button/app_primary_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../domain/model/onboarding_model.dart';
+import '../../sign_in_route.dart';
+import '../../utils/assets/app_icons.dart';
 import '../../utils/commom/app_color.dart';
+import '../../utils/widget/button/app_primary_button_widget.dart';
+import '../base/material_base_page.dart';
+import '../base/responsive_mixin.dart';
 import 'onboarding_item_widget.dart';
 
 class OnBoardingPage extends StatefulWidget {

@@ -1,10 +1,10 @@
-import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
-import 'package:base_ui_flutter_example/utils/commom/app_text.dart';
-import 'package:base_ui_flutter_example/utils/widget/app_back_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../domain/model/category_model.dart';
+import '../../utils/commom/app_color.dart';
+import '../../utils/commom/app_text.dart';
+import '../../utils/widget/app_back_widget.dart';
 
 class CategoryRoute extends StatelessWidget {
   const CategoryRoute({Key? key}) : super(key: key);

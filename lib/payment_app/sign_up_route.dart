@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
-import 'package:base_ui_flutter_example/utils/widget/button/button_associate.dart';
+import 'package:base_ui_flutter_example/payment_app/utils/commom/app_color.dart';
+import 'package:base_ui_flutter_example/payment_app/utils/widget/button/button_associate.dart';
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:base_ui_flutter_example/presentation/add_%20new_card/add_card_bloc.dart';
-import 'package:base_ui_flutter_example/utils/shared_reference_utils.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,7 +8,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/commom/app_color.dart';
 import '../../utils/commom/app_text.dart';
+import '../../utils/shared_reference_utils.dart';
 import '../../utils/widget/app_back_widget.dart';
+import 'add_card_bloc.dart';
 
 class AddNewCardRoute extends StatelessWidget {
   const AddNewCardRoute({Key? key}) : super(key: key);
@@ -28,17 +28,10 @@ class AddNewCardPage extends StatefulWidget {
 
 class _AddNewCardPageState extends State<AddNewCardPage> {
   int _balance = 25000;
-  String _cvv = "";
 
   final List<int> years = List<int>.generate(100, (index) => 1960 + index);
 
   final List<int> months = List<int>.generate(12, (index) => 1 + index);
-
-  void setCvv(String value) {
-    setState(() {
-      _cvv = value;
-    });
-  }
 
   void setBalance(int value) {
     setState(() {
@@ -176,7 +169,7 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                                     hintText: '****',
                                     suffixIcon: Icon(Icons.remove_red_eye)),
                                 onChanged: (text) {
-                                  setCvv(text);
+                                  //no-op
                                 },
                               ),
                             )),

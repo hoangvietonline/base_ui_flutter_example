@@ -1,7 +1,8 @@
-import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
-import 'package:base_ui_flutter_example/utils/commom/app_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../commom/app_color.dart';
+import '../commom/app_text.dart';
 
 class ItemProfileWidget extends StatelessWidget {
   const ItemProfileWidget({this.title, this.values, this.icon, Key? key})

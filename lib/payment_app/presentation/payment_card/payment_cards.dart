@@ -1,11 +1,11 @@
-import 'package:base_ui_flutter_example/presentation/add_%20new_card/add_new_card_route.dart';
-import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
-import 'package:base_ui_flutter_example/utils/commom/app_text.dart';
-import 'package:base_ui_flutter_example/utils/widget/app_back_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../domain/model/payment_model.dart';
+import '../../utils/commom/app_color.dart';
+import '../../utils/commom/app_text.dart';
+import '../../utils/widget/app_back_widget.dart';
+import '../add_ new_card/add_new_card_route.dart';
 
 class PaymentCardsRoute extends StatelessWidget {
   const PaymentCardsRoute({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
-import 'package:base_ui_flutter_example/presentation/add_%20new_card/add_card_bloc.dart';
-import 'package:base_ui_flutter_example/presentation/login/login_bloc.dart';
-import 'package:base_ui_flutter_example/presentation/onboarding/onboarding_page.dart';
-import 'package:base_ui_flutter_example/utils/shared_reference_utils.dart';
+import 'package:base_ui_flutter_example/payment_app/presentation/add_%20new_card/add_card_bloc.dart';
+import 'package:base_ui_flutter_example/payment_app/presentation/login/login_bloc.dart';
+import 'package:base_ui_flutter_example/payment_app/presentation/onboarding/onboarding_page.dart';
+import 'package:base_ui_flutter_example/payment_app/utils/shared_reference_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,6 +1,7 @@
-import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../commom/app_color.dart';
 
 class AssociateButton {
   Widget associateBtnFunc(String path, {required Function onClick}) => Expanded(

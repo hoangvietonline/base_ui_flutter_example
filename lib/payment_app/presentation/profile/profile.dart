@@ -1,17 +1,17 @@
 import 'dart:io';
 
-import 'package:base_ui_flutter_example/presentation/settings/settings.dart';
-import 'package:base_ui_flutter_example/utils/assets/app_icons.dart';
-import 'package:base_ui_flutter_example/utils/commom/app_text.dart';
-import 'package:base_ui_flutter_example/utils/widget/app_back_widget.dart';
-import 'package:base_ui_flutter_example/utils/widget/item_info_profile.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../utils/assets/app_icons.dart';
 import '../../utils/assets/app_image.dart';
 import '../../utils/commom/app_color.dart';
+import '../../utils/commom/app_text.dart';
+import '../../utils/widget/app_back_widget.dart';
+import '../../utils/widget/item_info_profile.dart';
+import '../settings/settings.dart';
 
 class ProfileRoute extends StatelessWidget {
   const ProfileRoute({Key? key}) : super(key: key);

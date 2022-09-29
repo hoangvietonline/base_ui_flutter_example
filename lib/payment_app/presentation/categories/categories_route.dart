@@ -1,11 +1,11 @@
-import 'package:base_ui_flutter_example/utils/commom/app_color.dart';
-import 'package:base_ui_flutter_example/utils/widget/app_nav_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../utils/assets/app_icons.dart';
+import '../../utils/commom/app_color.dart';
 import '../../utils/commom/app_text.dart';
+import '../../utils/widget/app_nav_widget.dart';
 import '../category/category_route.dart';
 
 class CategoriesRoute extends StatelessWidget {
